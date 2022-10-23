@@ -9,13 +9,13 @@ export default function Task4(){
     const [movdetails,setMovdetails] = useState([]);
 
     fetch('https://jsonmock.hackerrank.com/api/moviesdata/search/')
-    .then(function(res){res.json()})
-    .then(function(res){console.log(res)});
+    .then(res => res.json())
+    .then(function(json){setMovdetails(json.data)});
 
 
     return(
     <>
-        <div className="container" >
+        <div className="container">
             <div className="row">
                 <div className="col-lg-12">
                     <Menu />
@@ -40,7 +40,7 @@ export default function Task4(){
                     <tbody>
                         {movdetails.map((value,index)=>(
                             <tr>
-                                <td>{value.data.Title}</td>
+                                <td>{value.Title}</td>
                             </tr>
                         ))}
                     </tbody>
